@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>那一年，遇見彭老師 - 李定祐專訪</title>
+  <style>
+    /* 全局樣式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      font-size: 16px; /* 基础字体大小 */
+      background-color: #f8f9fa; /* 整體網站淺灰色背景 */
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    /* 導航欄 */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .logo a {
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .nav-links a:hover {
+      color: #888;
+    }
+    
+  
+    
+    /* 網格布局 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(300px, auto);
+      grid-gap: 0;
+    }
+    
+    /* 新增：大橫條式 Banner */
+    .banner {
+      grid-column: span 12;
+      display: flex;
+      height: 500px;
+      background-color: #1e3a8a; /* 深藍色背景 */
+    }
+    
+    .banner-image {
+      flex: 1;
+      overflow: hidden;
+    }
+    
+    .banner-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .banner-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); /* 深藍漸層背景 */
+      color: #f3f4f6; /* 淺灰白色文字 */
+    }
+    
+    .banner-content h2 {
+      font-size: 48px; /* 放大标题 */
+      margin-bottom: 30px;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .banner-content p {
+      font-size: 20px; /* 放大段落文字 */
+      margin-bottom: 25px;
+      max-width: 500px;
+    }
+    
+    .grid-item {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .grid-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* 特定網格項目樣式 */
+    .item-wide {
+      grid-column: span 6;
+    }
+    
+    .item-full {
+      grid-column: span 12;
+    }
+    
+    .item-tall {
+      grid-row: span 2;
+    }
+    
+    .item-content {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(to bottom, #f8fafc, #e2e8f0); /* 淺灰藍漸層背景 */
+      height: 100%;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.03); /* 內陰影效果 */
+    }
+    
+    .item-dark {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); /* 深藍漸層背景 */
+      color: #f3f4f6; /* 淺灰白色文字 */
+    }
+    
+    .item-content h2 {
+      font-size: 36px; /* 放大标题 */
+      margin-bottom: 20px;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .item-content p {
+      font-size: 20px; /* 放大段落文字 */
+      margin-bottom: 25px;
+      max-width: 500px;
+    }
+    
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 8px 0;
+      font-size: 16px; /* 放大按钮文字 */
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      width: fit-content;
+    }
+    
+    .btn:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: currentColor;
+      transition: width 0.3s;
+    }
+    
+    .btn:hover:after {
+      width: 50%;
+    }
+    
+    /* 專訪內容樣式 */
+    .interview-section {
+      padding: 80px 50px;
+      background-color: #fff;
+    }
+    
+    .interview-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .interview-heading h2 {
+      font-size: 48px; /* 放大标题 */
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+    
+    .interview-heading .subtitle {
+      font-size: 20px; /* 放大副标题 */
+      color: #888;
+      font-style: italic;
+    }
+    
+    .interview-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .preview-content {
+      position: relative;
+      max-height: 500px;
+      overflow: hidden;
+      margin-bottom: 40px; /* 增加底部空間 */
+    }
+    
+    .preview-content p {
+      font-size: 18px; /* 放大正文 */
+      margin-bottom: 1.5em;
+    }
+    
+    .preview-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: linear-gradient(transparent, #fff);
+      pointer-events: none; /* 確保覆蓋層不會攔截點擊事件 */
+    }
+    
+    .download-button-container {
+      text-align: center;
+      margin-top: -30px; /* 將按鈕向上移動，使其與漸層區域有所重疊 */
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 10; /* 確保按鈕在漸層上層 */
+    }
+    
+    .download-button {
+      background: #0369a1; /* 深藍色按鈕 */
+      color: #fff;
+      border: none;
+      padding: 12px 24px; /* 放大按钮 */
+      border-radius: 4px;
+      font-size: 18px; /* 放大按钮文字 */
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+    }
+    
+    .download-button:hover {
+      background: #0284c7; /* 淺藍色hover效果 */
+      transform: translateY(-2px); /* 微上浮效果 */
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* 增強陰影 */
+    }
+    
+    /* 讀者推薦樣式 */
+    .recommendation {
+      background: #e0f2fe; /* 淺藍色背景 */
+      border-left: 4px solid #0284c7; /* 深藍色邊框 */
+      padding: 30px;
+      margin: 30px 0 50px 0;
+      border-radius: 4px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* 添加淺陰影 */
+    }
+    
+    .recommendation h3 {
+      margin-top: 0;
+      font-size: 26px; /* 放大标题 */
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    
+    .recommendation p {
+      font-size: 18px; /* 放大文字 */
+    }
+    
+    /* 音頻區塊樣式 - 修改為白色背景 */
+    .audio-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px 0 80px 0;
+      background-color: #fff; /* 改為白色背景 */
+    }
+    
+    /* 音頻區塊樣式 */
+    .audio-block {
+      padding: 0 20px;
+    }
+    
+    .audio-block h3 {
+      font-size: 26px; /* 放大标题 */
+      margin-bottom: 15px;
+      font-weight: 400;
+    }
+    
+    .audio-block p {
+      margin-bottom: 15px;
+      color: #666;
+      font-size: 18px; /* 放大文字 */
+    }
+    
+    .audio-block audio {
+      width: 100%;
+      outline: none;
+    }
+    
+    audio::-webkit-media-controls-timeline {
+      width: 100% !important;
+    }
+    
+    audio::-webkit-media-controls-panel {
+      width: 100% !important;
+    }
+    
+    /* 特色區塊 */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 80px 50px;
+      background-color: #f0f9ff; /* 淺藍色背景 */
+      text-align: center;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.03); /* 內陰影效果 */
+    }
+    
+    .feature {
+      padding: 0 30px;
+    }
+    
+    .feature-icon {
+      font-size: 36px; /* 放大图标 */
+      margin-bottom: 20px;
+    }
+    
+    .feature h3 {
+      font-size: 24px; /* 放大标题 */
+      margin-bottom: 15px;
+      font-weight: 400;
+    }
+    
+    .feature p {
+      font-size: 18px; /* 放大文字 */
+      color: #666;
+    }
+    
+    /* 頁腳 - 修改為完全置中 */
+    footer {
+      background-color: #0f172a; /* 深藍色背景 */
+      color: #f3f4f6; /* 淺灰白色文字 */
+      padding: 50px 20px;
+      text-align: center; /* 置中對齊 */
+    }
+    
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .footer-col {
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    
+    .footer-col h4 {
+      font-size: 18px; /* 放大标题 */
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 400;
+      text-align: center; /* 置中對齊 */
+    }
+    
+    .footer-links {
+      list-style: none;
+      display: inline-block;
+      text-align: center; /* 置中對齊 */
+      padding: 0;
+      margin: 0 auto;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 16px; /* 放大链接文字 */
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #fff;
+    }
+    
+    .social-icons {
+      display: flex;
+      margin: 20px auto;
+      justify-content: center; /* 置中對齊 */
+    }
+    
+    .social-icons a {
+      color: #fff;
+      margin: 0 8px;
+      font-size: 18px; /* 放大社交图标 */
+      text-decoration: none;
+      padding: 5px 10px;
+      background-color: #333;
+      border-radius: 3px;
+      transition: background-color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      background-color: #555;
+    }
+    
+    .contact-text {
+      color: #aaa; 
+      font-size: 16px; /* 放大文字 */
+      margin-bottom: 15px;
+      text-align: center; /* 置中對齊 */
+    }
+    
+    .copyright {
+      margin-top: 30px;
+      color: #666;
+      font-size: 14px; /* 放大版权文字 */
+      text-align: center;
+      width: 100%;
+    }
+    
+    /* 模態框樣式 */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 400px;
+      text-align: center;
+    }
+    
+    .modal-content h3 {
+      font-size: 22px; /* 放大标题 */
+    }
+    
+    .modal-content p {
+      font-size: 18px; /* 放大文字 */
+      margin: 15px 0;
+    }
+    
+    .modal-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .modal-buttons button {
+      padding: 10px 20px; /* 放大按钮 */
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+      font-size: 16px; /* 放大按钮文字 */
+    }
+    
+    .modal-confirm {
+      background: #3a8ccc;
+      color: #fff;
+    }
+    
+    .modal-cancel {
+      background: #f2f2f2;
+      color: #333;
+    }
+    
+    /* 圖片自適應處理 - 同時支持橫向和縱向圖片 */
+    .grid-item {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .grid-item img {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .portrait-img {
+      height: 100%;
+      width: auto;
+    }
+    
+    .landscape-img {
+      width: 100%;
+      height: auto;
+    }
+    
+    /* 音頻區塊容器 - 設定背景延伸 */
+    .audio-section-container {
+      background-color: #fff;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+    
+    /* 響應式設計 */
+    @media (max-width: 1024px) {
+      .banner {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .banner-image, .banner-content {
+        flex: none;
+      }
+      
+      .grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+      
+      .features {
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+      }
+      
+      .audio-section {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 20px;
+        flex-direction: column;
+      }
+      
+      .nav-links {
+        margin-top: 20px;
+      }
+      
+      .nav-links li {
+        margin: 0 15px;
+      }
+      
+      .item-content {
+        padding: 30px;
+      }
+      
+      .banner-content h2 {
+        font-size: 36px;
+      }
+      
+      .banner-content p {
+        font-size: 18px;
+      }
+      
+      .item-wide, .item-full {
+        grid-column: span 6;
+      }
+      
+      .interview-section {
+        padding: 50px 20px;
+      }
+      
+      .interview-heading h2 {
+        font-size: 36px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .item-wide, .item-full {
+        grid-column: span 1;
+      }
+      
+      .banner-content h2 {
+        font-size: 28px;
+      }
+      
+      .banner-content p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 導航欄 -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#">李定祐專訪</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">首頁</a></li>
+      <li><a href="#interview">專訪</a></li>
+      <li><a href="#audio">聆聽</a></li>
+      <li><a href="#features">特色</a></li>
+      <li><a href="#footer">關於</a></li>
+    </ul>
+  </nav>
+  
+  <!-- 主要內容網格 -->
+  <div class="container">
+    <!-- 新增：大橫條式 Banner -->
+    <div class="banner">
+      <div class="banner-image">
+        <img src="header-image.png" alt="相親相愛大合照">
+      </div>
+      <div class="banner-content">
+        <h2>那一年<br>遇見彭老師</h2>
+        <p>回顧那段難忘的時刻，一段改變人生的相遇，每個細節都值得細細品味。</p>
+        <a href="#interview" class="btn" style="color: #fff;">閱讀專訪</a>
+      </div>
+    </div>
+    
+    <div class="grid">
+      <!-- 標題區塊 -->
+      <div class="grid-item item-wide item-content">
+        <h2>你無法想像的<br>他都遇到了</h2>
+        <p>小六成為模範生而從此凍顏、國中追求真命天女卻無疾而終、高中考上資優班但總被邊緣...</p>
+        <a href="#interview" class="btn">了解更多</a>
+      </div>
+      
+      <!-- 人像照片 - 同時支持橫向和縱向圖片 -->
+      <div class="grid-item item-wide">
+        <img src="image2.jpg" alt="龔教授合照">
+      </div>
+      
+      <!-- 風景照片 - 同時支持橫向和縱向圖片 -->
+      <div class="grid-item item-wide">
+        <img src="image3.jpg" alt="睡覺照">
+      </div>
+      
+      <!-- 第二個介紹區塊 -->
+      <div class="grid-item item-wide item-content">
+        <h2>但自從遇見彭老師<br>一切似乎都變好了</h2>
+        <p>「彭老師大概是改變我最多的人吧！」在彰師大的日子，如何從絕望到希望，一段觸動人心的成長故事。</p>
+        <a href="#interview" class="btn">閱讀全文</a>
+      </div>
+    </div>
+    
+    <!-- 專訪內容區塊 -->
+    <section id="interview" class="interview-section">
+      <div class="interview-heading">
+        <h2>那一年，遇見彭老師</h2>
+        <p class="subtitle">── 李定祐專訪</p>
+      </div>
+      
+      <div class="interview-content">
+        <div class="preview-content">
+          <p>彰師大英語學系的李定祐出身公務員世家，自小便備受家庭期待，父母三不五時就會要他吟個幾句、奏個幾曲，琴棋書畫樣樣學，無奈自身學藝不精，老是將王之渙的「欲窮千里目」，念作「芋頭西米露」，抑或是學了法文卻半途而廢，數字數到十一就沒轍了。如此盲目糊塗的生活，就這樣渾渾噩噩的過了十八年，直到進到彰師大，才真正改變了他。</p>
+          
+          <p>考前一個月的準備，成為李定祐與彭老師命中注定相見的機會。高中三年所經歷的風風雨雨，將要在指考這一天結成豐碩的果實，但雨真的太大了，造成洪災，樹根都被連根拔起，眼看自己就要被沖入台灣海峽，他毫不遲疑的伸長了雙臂，緊緊環抱住眼前唯一可見的黑色柱子。奇蹟般的，頓時間滾滾洪流消逝，被泥沙沖刷的雙眼總算能勉強睜開，無奈消沉的意志卻讓他抬不起頭來，映入眼簾的是兩本綑在柱子腳邊，封面有個女人的書。</p>
+            
+          <p>「那時我還真的以為死定了，因為當下的我完全使不上力，指考的洪流十分駭人。但奇蹟就那樣發生了。」李定祐回憶道，當他又再一次仔細端倪，才發現他用最後零星力氣抱住的，似乎不是柱子。</p>
+          
+          <div class="preview-overlay"></div>
+        </div>
+        
+        <!-- 下載按鈕區域 - 調整位置在漸層下方 -->
+        <div class="download-button-container">
+          <button class="download-button" onclick="openModal()">下載完整專訪</button>
+        </div>
+        
+        <!-- 讀者推薦 -->
+        <div class="recommendation">
+          <h3>讀者推薦</h3>
+          <p><strong>彰師大英語學系 龔會議 副教授兼英語系主任</strong>：「我從來沒為我的學生如此大哭一場過，直到讀完這篇專訪。李定祐其實是我的學生，他上課時總是提不起精神，或是把我的話當耳邊風，不停找隔壁同學聊天。原先我以為他是個叛逆的學生，不過這篇專訪，（又再度熱淚盈眶）確實讓我看到他不一樣的一面，稱不上是outstanding，但我想送給他的字是interesting。」</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 音頻區塊 - 修改為白色背景和單行描述 -->
+    <section id="audio" class="audio-section-container">
+      <div class="audio-section">
+        <div class="audio-block">
+          <h3>Podcast 專訪</h3>
+          <p>您可以透過下方播放器來聆聽李定祐專訪 Podcast。</p>
+          <audio controls>
+            <source src="podcast.wav" type="audio/mpeg">
+            您的瀏覽器不支援 audio 元件。
+          </audio>
+        </div>
+        
+        <div class="audio-block">
+          <h3>專訪有聲書</h3>
+          <p>您可以透過下方播放器來聆聽李定祐專訪的有聲書。</p>
+          <audio controls>
+            <source src="Audiobook.mp3" type="audio/mpeg">
+            您的瀏覽器不支援 audio 元件。
+          </audio>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 特色區塊 -->
+    <section id="features" class="features">
+      <div class="feature">
+        <div class="feature-icon">📖</div>
+        <h3>深度故事</h3>
+        <p>深入淺出的敘事手法，帶您了解彭老師與李定祐之間的動人故事，以及如何改變一個人的生命軌跡。</p>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">🎧</div>
+        <h3>多元體驗</h3>
+        <p>除了文字專訪外，還提供 Podcast 與有聲書，讓您可以隨時隨地聆聽這段溫暖人心的故事。</p>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">💫</div>
+        <h3>感同身受</h3>
+        <p>無論您是否曾經歷類似的人生轉折，這個故事都能引起共鳴，帶給您面對挑戰的勇氣與動力。</p>
+      </div>
+    </section>
+  </div>
+  
+  <!-- 頁腳 - 置中且兩列布局 -->
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>相關連結</h4>
+          <ul class="footer-links">
+            <li><a href="https://english.ncue.edu.tw/" target="_blank">彰師大英語系</a></li>
+            <!-- <li><a href="https://example.com/peng-column" target="_blank">彭老師專欄</a></li> -->
+            <!-- <li><a href="https://example.com/more-works" target="_blank">更多作品</a></li> -->
+            <li><a href="mailto:russellleehaha@gmail.com">與我們聯繫 (russellleehaha@gmail.com)</a></li>
+            <!-- <li><a href="https://example.com/contact" target="_blank">與我們聯繫</a></li> -->
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <p class="contact-text">關注我們的社交媒體，獲取更多感人故事與最新資訊。</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=100005566987874" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/russlee0926/" target="_blank">Instagram</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        © 2025 李定祐專訪 - 那一年，遇見彭老師。撰文整理｜李定祐的熟人。保留所有權利。
+      </div>
+    </div>
+  </footer>
+  
+  <!-- 下載確認對話框 -->
+  <div id="downloadModal" class="modal">
+    <div class="modal-content">
+      <h3>下載完整專訪</h3>
+      <p>您確定要下載「那一年，遇見彭老師」完整專訪 PDF 文件嗎？</p>
+      <div class="modal-buttons">
+        <button class="modal-confirm" onclick="downloadPDF()">確認下載</button>
+        <button class="modal-cancel" onclick="closeModal()">取消</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function openModal() {
+      document.getElementById('downloadModal').style.display = 'flex';
+    }
+    
+    function closeModal() {
+      document.getElementById('downloadModal').style.display = 'none';
+    }
+    
+    function downloadPDF() {
+      // 這裡設定PDF下載連結
+      window.location.href = 'interview.pdf';
+      closeModal();
+    }
+    
+    // 點擊模態框外部關閉
+    window.onclick = function(event) {
+      if (event.target == document.getElementById('downloadModal')) {
+        closeModal();
+      }
+    }
+    
+    // 設定音頻音量
+    window.onload = function() {
+      var podcastAudio = document.getElementById('podcast-audio');
+      var audiobookAudio = document.getElementById('audiobook-audio');
+      
+      // 設定音量到較高的值 (0.0-1.0)
+      if (podcastAudio) podcastAudio.volume = 0.8;
+      if (audiobookAudio) audiobookAudio.volume = 0.9; // 有聲書音量設定更高
+      
+      // 為音頻添加事件監聽器
+      if (audiobookAudio) {
+        audiobookAudio.addEventListener('play', function() {
+          // 確保播放時音量是高的
+          this.volume = 0.9;
+        });
+      }
+    }
+  </script>
+</body>
+</html>
